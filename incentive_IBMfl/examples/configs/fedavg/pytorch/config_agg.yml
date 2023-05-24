@@ -1,0 +1,75 @@
+connection:
+  info:
+    ip: 192.168.0.231
+    port: 5000
+    tls_config:
+      enable: false
+  name: FlaskConnection
+  path: ibmfl.connection.flask_connection
+  sync: false
+data:
+  info:
+    data_folder: examples/datasets/cifar10.npz
+  name: Cifar10PytorchDataHandler
+  path: ibmfl.util.data_handlers.cifar10_pytorch_data_handler
+data_DA:
+  info:
+    data_folder: /home/ahmad/anaconda3/envs/PIFL/lib/python3.7/site-packages/ibmfl/incentive_IBMfl/examples/data/cifar10/balanced/cifar10_DA.npz
+    npz_file: /home/ahmad/anaconda3/envs/PIFL/lib/python3.7/site-packages/ibmfl/incentive_IBMfl/examples/data/cifar10/balanced/cifar10_DA.npz
+  name: Cifar10PytorchDataHandler
+  path: ibmfl.util.data_handlers.cifar10_pytorch_data_handler
+data_DB:
+  info:
+    data_folder: /home/ahmad/anaconda3/envs/PIFL/lib/python3.7/site-packages/ibmfl/incentive_IBMfl/examples/data/cifar10/balanced/cifar10_DB.npz
+    npz_file: /home/ahmad/anaconda3/envs/PIFL/lib/python3.7/site-packages/ibmfl/incentive_IBMfl/examples/data/cifar10/balanced/cifar10_DB.npz
+  name: Cifar10PytorchDataHandler
+  path: ibmfl.util.data_handlers.cifar10_pytorch_data_handler
+data_DC:
+  info:
+    data_folder: /home/ahmad/anaconda3/envs/PIFL/lib/python3.7/site-packages/ibmfl/incentive_IBMfl/examples/data/cifar10/balanced/cifar10_DC.npz
+    npz_file: /home/ahmad/anaconda3/envs/PIFL/lib/python3.7/site-packages/ibmfl/incentive_IBMfl/examples/data/cifar10/balanced/cifar10_DC.npz
+  name: Cifar10PytorchDataHandler
+  path: ibmfl.util.data_handlers.cifar10_pytorch_data_handler
+data_DD:
+  info:
+    data_folder: /home/ahmad/anaconda3/envs/PIFL/lib/python3.7/site-packages/ibmfl/incentive_IBMfl/examples/data/cifar10/balanced/cifar10_DD.npz
+    npz_file: /home/ahmad/anaconda3/envs/PIFL/lib/python3.7/site-packages/ibmfl/incentive_IBMfl/examples/data/cifar10/balanced/cifar10_DD.npz
+  name: Cifar10PytorchDataHandler
+  path: ibmfl.util.data_handlers.cifar10_pytorch_data_handler
+data_DE:
+  info:
+    data_folder: /home/ahmad/anaconda3/envs/PIFL/lib/python3.7/site-packages/ibmfl/incentive_IBMfl/examples/data/cifar10/balanced/cifar10_DE.npz
+    npz_file: /home/ahmad/anaconda3/envs/PIFL/lib/python3.7/site-packages/ibmfl/incentive_IBMfl/examples/data/cifar10/balanced/cifar10_DE.npz
+  name: Cifar10PytorchDataHandler
+  path: ibmfl.util.data_handlers.cifar10_pytorch_data_handler
+fusion:
+  name: TierFedAvgFusionHandler
+  path: ibmfl.aggregator.fusion.tier_fedavg_fusion_handler
+hyperparams:
+  global:
+    max_timeout: 10000
+    num_parties: 100
+    parties_selected_per_tier: 10
+    pre_training_rounds: 0
+    random_parties_selected_per_tier: 5
+    rounds: 800
+    select_random: false
+    termination_accuracy: 0.9
+    tiers: 5
+    token_to_pay: 1
+    tokens: 500
+  local:
+    training:
+      epochs: 5
+      lr: 0.01
+model:
+  name: PytorchFLModel
+  path: ibmfl.model.pytorch_fl_model
+  spec:
+    loss_criterion: nn.NLLLoss
+    model_definition: examples/configs/fedavg/pytorch/pytorch_sequence.pt
+    model_name: pytorch-nn
+    optimizer: optim.Adadelta
+protocol_handler:
+  name: ProtoHandler
+  path: ibmfl.aggregator.protohandler.proto_handler

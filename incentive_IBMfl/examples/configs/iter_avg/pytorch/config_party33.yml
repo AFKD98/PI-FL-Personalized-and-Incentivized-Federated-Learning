@@ -1,0 +1,35 @@
+aggregator:
+  ip: 192.168.0.231
+  port: 5000
+connection:
+  info:
+    ip: 192.168.0.232
+    port: 8118
+    tls_config:
+      enable: false
+  name: FlaskConnection
+  path: ibmfl.connection.flask_connection
+  sync: false
+data:
+  info:
+    npz_file: examples/data/cifar10/balanced/data_party33.npz
+  name: Cifar10PytorchDataHandler
+  path: ibmfl.util.data_handlers.cifar10_pytorch_data_handler
+hyperparams:
+  tiers: 2
+local_training:
+  name: TierLocalTrainingHandler
+  path: ibmfl.party.training.tier_local_training_handler
+model:
+  name: PytorchFLModel
+  path: ibmfl.model.pytorch_fl_model
+  spec:
+    loss_criterion: nn.NLLLoss
+    model_definition: examples/configs/iter_avg/pytorch/pytorch_sequence.pt
+    model_name: pytorch-nn
+    optimizer: optim.Adadelta
+privacy:
+  metrics: true
+protocol_handler:
+  name: PartyProtocolHandler
+  path: ibmfl.party.party_protocol_handler

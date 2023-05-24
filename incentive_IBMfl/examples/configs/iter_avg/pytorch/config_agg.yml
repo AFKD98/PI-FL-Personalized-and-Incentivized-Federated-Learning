@@ -1,0 +1,43 @@
+connection:
+  info:
+    ip: 192.168.0.231
+    port: 5000
+    tls_config:
+      enable: false
+  name: FlaskConnection
+  path: ibmfl.connection.flask_connection
+  sync: false
+data:
+  info:
+    data_folder: examples/datasets/cifar10.npz
+  name: Cifar10PytorchDataHandler
+  path: ibmfl.util.data_handlers.cifar10_pytorch_data_handler
+fusion:
+  name: TierIterAvgFusionHandler
+  path: ibmfl.aggregator.fusion.tier_iter_avg_fusion_handler
+hyperparams:
+  global:
+    max_timeout: 6000
+    num_parties: 50
+    parties_selected_per_tier: 5
+    random_parties_selected_per_tier: 2
+    rounds: 10
+    termination_accuracy: 0.9
+    tiers: 2
+    token_to_pay: 5
+    tokens: 100
+  local:
+    training:
+      epochs: 3
+      lr: 1
+model:
+  name: PytorchFLModel
+  path: ibmfl.model.pytorch_fl_model
+  spec:
+    loss_criterion: nn.NLLLoss
+    model_definition: examples/configs/iter_avg/pytorch/pytorch_sequence.pt
+    model_name: pytorch-nn
+    optimizer: optim.Adadelta
+protocol_handler:
+  name: ProtoHandler
+  path: ibmfl.aggregator.protohandler.proto_handler
