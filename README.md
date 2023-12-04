@@ -18,6 +18,10 @@ Activate the newly created Conda environment.
 ```sh
 conda activate <env_name>
 
+Setup the conda environment and IBMFL using the setup guide in
+
+# Then replace the code in the conda environment /anaconda3/envs/PIFL/lib/python3.7/site-packages/ibmfl with PI-FL's code in this repository.
+
 **Notes:**
 
 * The quotes are required if using the Zsh shell (this is the default shell for Mac).
