@@ -125,17 +125,16 @@ If you use PI-FL, please cite the following reference paper:
 }
 ```
 
-# How to setup
-
-Create a con
 # How to Run
 
-For generating configs use incentive_IBMfl/examples/generate_configs.py
+First, run the aggregator using the following command:
 
-Configs are required to generate the execution plan, python -h generate_configs.py will show the flags.
+"python -m ibmfl.aggregator.aggregator examples/configs/<fusion>/<model>/config_agg.yml"
 
-"incentive_IBMfl/examples$ python examples/generate_configs.py -n 100 -tn 2 -d emnist -p examples/data/emnist/balanced --fusion fedavg --model pytorch --party_ip 192.168.0.232"
+Then you can use the partyManager to run the parties with multiprocessing, here is the command to run the first 50 parties:
 
-It will generate one config file for aggregator and a config file for each party
+"python partyManager/party_manager.py 50 > logs/log.txt"
+
+
 
 
