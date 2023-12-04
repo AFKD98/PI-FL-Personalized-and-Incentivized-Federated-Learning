@@ -79,10 +79,10 @@ examples/configs/<fusion>/<model>/config_party1.yml
 examples/configs/<fusion>/<model>/config_party<n-1>.yml
 ```
 
-For example to generate the configs for a **PyTorch model** for **2 parties** using the **iterated average fusion algorithm** from the **MNIST dataset** (generated from before), you could run:
+For example to generate the configs for a **PyTorch model** for **2 parties** using the **tiered federated average fusion algorithm** from the **CIFAR10 dataset** (generated from before), you could run:
 
 ```sh
-python examples/generate_configs.py -n 100 -tn 2 -d emnist -p examples/data/emnist/balanced --fusion fedavg --model pytorch --party_ip 192.168.0.232
+python examples/generate_configs.py -n 100 -tn 2 -d cifar -p examples/data/cifar/balanced --fusion fedavg --model pytorch --party_ip 192.168.0.232
 ```
 
 This command will generate the following config files:
