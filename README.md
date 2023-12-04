@@ -48,6 +48,10 @@ By default the data is scaled down to range between 0 and 1 and reshaped such th
 
 To run IBM federated learning, you must have configuration files for the aggregator and for each party.
 
+Before generating the configs edit the aggregator IP in line 80 in generate_configs.py 
+
+#On line 80, replace '192.168.0.231' with aggregator machine's IP.
+
 You can generate these config files using the `generate_configs.py` script. This script requires the following flags:
 
 | Flag | Description | Type |
