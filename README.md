@@ -57,6 +57,9 @@ You can generate these config files using the `generate_configs.py` script. This
 | `-n <num_parties>` | the number of parties to split the data into | integer |
 | `-d <dataset>` | which data set to use | string |
 | `-p <path>` | path to load saved config data | string |
+| `-tn <int>` | Number of tiers | int |
+| `--party-ip <IP address>` | IP address of party's machine | IP address |
+
 
 The `-n <num_parties>` and `-d <dataset>` flags should be the same same as when generating the sample data. The `-p <path>` flag will depend on the generated data from the previous step, but will typically be `-p examples/data/<dataset>/random`. The backend framework for model from the `-m <model>` flag must be installed.
 
@@ -75,7 +78,7 @@ examples/configs/<fusion>/<model>/config_party<n-1>.yml
 For example to generate the configs for a **PyTorch model** for **2 parties** using the **iterated average fusion algorithm** from the **MNIST dataset** (generated from before), you could run:
 
 ```sh
-python examples/generate_configs.py -f iter_avg -m pytorch -n 2 -d mnist -p examples/data/mnist/random
+python examples/generate_configs.py -n 100 -tn 2 -d emnist -p examples/data/emnist/balanced --fusion fedavg --model pytorch --party_ip 192.168.0.232
 ```
 
 This command will generate the following config files:
